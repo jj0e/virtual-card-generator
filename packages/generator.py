@@ -42,7 +42,8 @@ def create_stripe_card(cardholder_id, currency="usd"):
     card = stripe.issuing.Card.create(
         cardholder=cardholder_id,
         currency=currency,
-        type="virtual"
+        type="virtual",
+        status="active"
     )
 
     details = stripe.issuing.Card.details(card["id"])
